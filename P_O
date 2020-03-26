@@ -1,0 +1,22 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        i=-1
+        j=-len(digits)
+        k=0
+        def recur(i,digits):
+            if digits[0]==0:
+                return [1]
+            if i==j:
+                if digits[i]==9:
+                    digits[i]=0
+                    digits.insert(0,1)
+                    return digits
+                else:
+                    digits[i]=digits[i]+1
+                    return digits
+            if digits[i]==9:
+                digits[i]=0
+                return recur(digits,i-1)
+            digits[i]=digits[i]+1
+            return digits
+        return recur(i,digits)
